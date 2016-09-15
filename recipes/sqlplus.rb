@@ -47,7 +47,7 @@ template '/etc/ld.so.conf.d/oracle-instantclient-86_64.conf' do
       :version => node['oracle-instantclient']['version'],
       :client_arch => client_arch
   )
-  notifies :run, 'execute[ldconfig]'
+  notifies :run, 'execute[ldconfig]', :immediate
 end
 
 ruby_block 'update-alternatives' do
